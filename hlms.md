@@ -246,7 +246,9 @@ __返回示例__：
 
 **URL生成方式：**
 
-```http://hlms.yeeuu.com/weixin/?token={token}&phone={phone}&hotel_id={hotel_id}```
+```
+http://hlms.yeeuu.com/weixin/?token={token}&phone={phone}&hotel_id={hotel_id}
+```
 
 __请求参数说明：__
 
