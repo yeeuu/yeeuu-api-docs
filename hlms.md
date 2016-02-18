@@ -112,7 +112,7 @@ msg|调用失败时，此处为错误说明
 __请求示例__：
 
 ```http
-POST https://hlms.yeeuu.com/api/v1/123456/auth/101?secret=1234567890&phone=18600000000
+POST https://hlms.yeeuu.com/api/v1/123456/auth/101?secret=1234567890
 Accept: application/json
 Accept-Encoding: gzip, deflate
 Content-Type: application/json
@@ -169,6 +169,13 @@ __请求示例：__
 
 ```http
 DELETE https://hlms.yeeuu.com/api/v1/123456/auth/101?secret=1234567890&phone=18600000000
+Accept: application/json
+Accept-Encoding: gzip, deflate
+Content-Type: application/json
+```
+
+```http
+DELETE https://hlms.yeeuu.com/api/v1/123456/auth/101?secret=1234567890
 Accept: application/json
 Accept-Encoding: gzip, deflate
 Content-Type: application/json
