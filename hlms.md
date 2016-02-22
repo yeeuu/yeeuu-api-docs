@@ -3,7 +3,7 @@
 |更新时间|2016-02-03|
 |:--|:--|
 |API版本| 1.1.0|
-|状态|草案，尚未提供服务|
+|状态|草案|
 |作者|Kevin \<kevin at yeeuu dot com\>|
 |更新纪录|__2016-02-03 1.1.0版本草案发布__<br>_2015-09-16 v1.0.0版本文档发布_|
 
@@ -11,13 +11,13 @@
 
 * [基本约定](#基本约定)
 
-* [授权管理API](#授权管理api)   
+* [授权管理API](#授权管理API)   
   * [获取授权](#获取授权)   
   * [更新授权](#更新授权)    
   * [清除授权](#清除授权)   
 
-* [获取信任登陆API](#获取信任登陆api)
-  * [获取授权登陆Token](#获取授权登陆token) 
+* [获取信任登陆API](#获取信任登陆API)
+  * [获取授权登陆Token](#获取授权登陆Token) 
 
 * [微信开门页面跳转](#微信开门页面跳转)
 
@@ -82,7 +82,7 @@ __返回示例__：
 
 可能出现的```status```错误值：
 
-* __404__ - 该酒店未找到，可能时酒店ID未配置
+* __404__ - 该酒店未找到，可能是酒店ID未配置
 * __403__ - 密钥传递错误
 * __303__ - 房间未匹配到
 * __500__ - 服务器端遇到未预测到异常
@@ -112,7 +112,7 @@ msg|调用失败时，此处为错误说明
 __请求示例__：
 
 ```http
-POST https://hlms.yeeuu.com/api/v1/123456/auth/101?secret=1234567890
+POST https://hlms.yeeuu.com/api/v1/123456/auth/101?secret=1234567890&phone=18600000000
 Accept: application/json
 Accept-Encoding: gzip, deflate
 Content-Type: application/json
@@ -136,14 +136,16 @@ __返回示例__：
 
 可能出现的```status```错误值：
 
-* __404__ - 该酒店未找到，可能时酒店ID未配置
+* __404__ - 该酒店未找到，可能是酒店ID未配置
 * __403__ - 密钥传递错误
 * __303__ - 房间未匹配到
 * __500__ - 服务器端遇到未预测到异常
 * __304__ - 由于某些原因，操作未成功
 * __400__ - 请求参数不正确
 
-### 清除授权
+### 删除授权
+
+### 更新授权
 
 __请求地址：__ ```{hotel_id}/auth/{room}?secret={secret}&phone={phone}```
 
@@ -174,13 +176,6 @@ Accept-Encoding: gzip, deflate
 Content-Type: application/json
 ```
 
-```http
-DELETE https://hlms.yeeuu.com/api/v1/123456/auth/101?secret=1234567890
-Accept: application/json
-Accept-Encoding: gzip, deflate
-Content-Type: application/json
-```
-
 __返回示例：__
 
 ```json
@@ -192,7 +187,7 @@ __返回示例：__
 
 可能出现的```status```错误值：
 
-* __404__ - 该酒店未找到，可能时酒店ID未配置
+* __404__ - 该酒店未找到，可能是酒店ID未配置
 * __403__ - 密钥传递错误
 * __303__ - 房间未匹配到
 * __500__ - 服务器端遇到未预测到异常
@@ -202,6 +197,8 @@ __返回示例：__
 ## 获取信任登陆API
 
 ### 获取授权登陆Token
+
+注意： 获取到的Token有效次数仅为一次，有效时间10分钟以内。
 
 __请求地址：__ ```{hotel_id}/token/{phone}?secret={secret}```
 
@@ -235,13 +232,15 @@ __返回示例__：
 {
     "status": 200,        // 调用成功，此值为200
     "msg": "",            // 调用失败时，此处为错误说明
-    "data": "xxxxx"       // 返回TOKEN
+    "data": {
+        "token": "xxxx"   // 返回TOKEN
+    }      
 }
 ```
 
 可能出现的```status```错误值：
 
-* __404__ - 该酒店未找到，可能时酒店ID未配置
+* __404__ - 该酒店未找到，可能是酒店ID未配置
 * __403__ - 密钥传递错误
 * __500__ - 服务器端遇到未预测到异常
 
@@ -251,17 +250,15 @@ __返回示例__：
 
 **URL生成方式：**
 
-```
-http://hlms.yeeuu.com/weixin/?token={token}&phone={phone}&hotel_id={hotel_id}
-```
+地址： ```http://hlms.yeeuu.com/weixin/?token={token}&phone={phone}&hotel_id={hotel_id}```
 
 __请求参数说明：__
 
 参数名|参数说明|参数示例
 -----|-------|------
 hotel_id|酒店ID|123456
-token|可以通过[获取授权登陆Token](#获取授权登陆Token)方式获取|xxxxx
-phone|用户手机号码，可以选择隐藏中间4位，使用```*```代替|123****8900
+token|可以通过[获取授权登陆Token](#获取授权登陆token)方式获取|xxxxx
+phone|用户手机号码，可以选择全部显示或者使用```*```隐藏中间4位|123****8900
 
 __URL示例：__
 
