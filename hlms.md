@@ -11,13 +11,13 @@
 
 * [基本约定](#基本约定)
 
-* [授权管理API](#授权管理API)   
+* [授权管理API](#授权管理api)   
   * [获取授权](#获取授权)   
   * [更新授权](#更新授权)    
   * [清除授权](#清除授权)   
 
-* [获取信任登陆API](#获取信任登陆API)
-  * [获取授权登陆Token](#获取授权登陆Token) 
+* [获取信任登陆API](#获取信任登陆api)
+  * [获取授权登陆Token](#获取授权登陆token) 
 
 * [微信开门页面跳转](#微信开门页面跳转)
 
@@ -250,7 +250,7 @@ __返回示例__：
 
 **URL生成方式：**
 
-地址： ```http://hlms.yeeuu.com/weixin/?token={token}&phone={phone}&hotel_id={hotel_id}```
+地址：```http://hlms.yeeuu.com/weixin/?token={token}&phone={phone}&hotel_id={hotel_id}```
 
 __请求参数说明：__
 
