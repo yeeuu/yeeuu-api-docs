@@ -178,7 +178,7 @@ __调用失败：__
 500|服务器端错误
 503|指定酒店暂时不支持API方式调用
 
-### 更新清除单个房间授权信息
+### 更新单个房间授权信息
 
 __请求地址：__ ```/auth/{room}?timestamp={timestamp}&nonstr={nonstr}&hotel_id={hotel_id}&sign={sign}```
 
