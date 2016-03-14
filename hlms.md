@@ -5,13 +5,15 @@
 |API版本| 1.0.0|
 |状态|正式|
 |作者|Kevin \<kevin at yeeuu dot com\>|
-|更新纪录|2016/02/29 更新部分描述。<br>2016/01/20 更新Java SDK地址。<br>2015/11/23 添加约定内容和使用逻辑。<br>2015/10/29 去除相关无用API说明。<br>2015/10/21 分离微信开门API。<br>2015/09/22 更新微信开门页面信任登录方式。<br>2015/09/16 API链接切换成HTTPS方式，更加安全。支持SPDY3.1协议连接。<br>|
+|更新纪录|2016/03/14 更新操作逻辑时序图。<br>2016/02/29 更新部分描述。<br>2016/01/20 更新Java SDK地址。<br>2015/11/23 添加约定内容和使用逻辑。<br>2015/10/29 去除相关无用API说明。<br>2015/10/21 分离微信开门API。<br>2015/09/22 更新微信开门页面信任登录方式。<br>2015/09/16 API链接切换成HTTPS方式，更加安全。支持SPDY3.1协议连接。<br>|
 
 ### 目录
 
 * [SDK](#sdk)
 
 * [相关约定](#相关约定)
+
+* [操作逻辑时序图](#操作逻辑时序图)
 
 * [授权信息](#授权信息)   
   * [获取所有房间授权信息](#获取所有房间授权信息)
@@ -47,6 +49,9 @@
 |sign|签名字符串，使用SHA1算法生成的HEX值，签名数据均为字符串格式，数字类型需转换为对应字符串。|
 |返回数据格式|为方便处理，在成功调用云柚接口后会返回JSON数据，同时```Content-Type```被设置为```application/json```。|
 
+## 操作逻辑时序图
+
+![时序图](https://raw.githubusercontent.com/yeeuu/yeeuu-api-docs/master/img/hotelTimeline.png)
 
 ## 授权信息
 
@@ -208,7 +213,7 @@ msg|调用成功时，此处为提示信息
 __请求示例：__
 
 ```http
-https://hlms.yeeuu.com/api/auth/101?timestamp=1448091239&nonstr=1448091239&hotel_id=dd2edb87ea9eb7a32fd4057276d3a1&sign= dd2edb87ea9eb7a32fd4057276d3a1fab861c1d5
+POST https://hlms.yeeuu.com/api/auth/101?timestamp=1448091239&nonstr=1448091239&hotel_id=dd2edb87ea9eb7a32fd4057276d3a1&sign= dd2edb87ea9eb7a32fd4057276d3a1fab861c1d5
 
 phone=13400000000&phone=18600000000&start=1448091239&end=1448091240&type=0
 ```
