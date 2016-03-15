@@ -107,6 +107,9 @@ __请求参数说明：__
 hotel_id|酒店ID|123456
 room|酒店中存在的房间名|101
 secret|调用必须的密钥|1234567890
+phone|被授权手机号码，数组|["18600000000", "13400000000"]
+start|开始时间时间戳|1234567890
+end|结束时间时间戳|1235678900
 
 __返回值说明：__
 
@@ -118,7 +121,7 @@ msg|调用失败时，此处为错误说明
 __请求示例__：
 
 ```http
-POST https://hlms.yeeuu.com/api/v1/123456/auth/101?secret=1234567890&phone=18600000000
+POST https://hlms.yeeuu.com/api/v1/123456/auth/101?secret=1234567890
 Accept: application/json
 Accept-Encoding: gzip, deflate
 Content-Type: application/json
