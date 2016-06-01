@@ -370,7 +370,7 @@ __返回示例__：
 
 **URL生成方式：**
 
-地址：```http://hlms.yeeuu.com/weixin/?token={token}&phone={phone}&hotel_id={hotel_id}```
+地址：```https://hlms.yeeuu.com/weixin/?token={token}&phone={phone}&hotel_id={hotel_id}```
 
 __请求参数说明：__
 
@@ -383,7 +383,7 @@ phone|用户手机号码，可以选择全部显示或者使用```*```隐藏中�
 __URL示例：__
 
 ```
-http://hlms.yeeuu.com/weixin/?token=xxxxx&phone=123****8900&hotel_id=123456
+https://hlms.yeeuu.com/weixin/?token=xxxxx&phone=123****8900&hotel_id=123456
 ```
 
 如果登陆成功，则跳过登陆页面。
